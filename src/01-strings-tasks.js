@@ -176,8 +176,8 @@ function convertToUpperCase(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
@@ -203,8 +203,12 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const squareTop = `┌${[...Array(width - 2)].fill('─').join('')}┐\n`;
+  const squareMiddleRow = `│${[...Array(width - 2)].fill(' ').join('')}│\n`;
+  const squareMiddle = [...Array(height - 2)].fill(squareMiddleRow).join('');
+  const squareBottom = `└${[...Array(width - 2)].fill('─').join('')}┘\n`;
+  return [squareTop, squareMiddle, squareBottom].join('');
 }
 
 
@@ -241,8 +245,8 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return (typeof value === 'string' || value instanceof String);
 }
 
 
